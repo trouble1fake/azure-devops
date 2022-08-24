@@ -13,10 +13,11 @@ steps:
     scannerMode: 'Other'
     extraProperties: |
       sonar.coverage.jacoco.xmlReportPaths=CCReport43F6D5EF/jacoco.xml
-      # Initial behavior of Maven task is that the SonarScanner uses information contained in Maven
-      # object model to provide smart defaults for most of the standard analysis parameters.
-      # You can however override this by setting wanted properties in this extraProperties space.
-      # Read more about this : https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/#header-4
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=sivakalahasthy_azuredevops-github
+      sonar.projectName=azuredevops-github
 - task: Maven@3
   displayName: 'Execute Maven goal'
   inputs:
@@ -35,8 +36,7 @@ steps:
     codeCoverageToolOption: 'JaCoCo'
     testResultsFiles: '**/TEST-*.xml'
     goals: 'verify'
-
-
+- task: SonarCloudAnalyze@1
 # Uncomment the next task to wait until SonarCloud processing has
 # finished and to publish the result on the Pipeline build summary
 - task: SonarCloudPublish@1
