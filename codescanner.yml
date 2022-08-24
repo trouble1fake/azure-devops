@@ -12,9 +12,4 @@ pool:
 jobs:
   - job: Scanthelocalproject
     steps:
-    - task: SonarCloudPrepare@1
-      inputs:
-        SonarCloud: 'sonarscan'
-        organization: 'sivakalahasthy'
-        scannerMode: 'Other'
-    - task: SonarCloudAnalyze@1
+    - bash: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sivakalahasthy_azuredevops-github
