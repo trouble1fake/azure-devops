@@ -18,24 +18,24 @@ steps:
       # sonar.exclusions=**/*.bin
       sonar.projectKey=sivakalahasthy_azuredevops-github
       sonar.projectName=azuredevops-github
-- task: Maven@3
-  displayName: 'Execute Maven goal'
-  inputs:
-    mavenPomFile: 'pom.xml'
-    options: '-Dmaven.test.failure.ignore=true'
-    mavenOptions: '-Xmx3072m'
-    mavenVersionOption: 'Default'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-    codeCoverageToolOption: 'JaCoCo'
-    testResultsFiles: '**/TEST-*.xml'
-    goals: 'verify'
+# - task: Maven@3
+#   displayName: 'Execute Maven goal'
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     options: '-Dmaven.test.failure.ignore=true'
+#     mavenOptions: '-Xmx3072m'
+#     mavenVersionOption: 'Default'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.8'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     mavenAuthenticateFeed: false
+#     effectivePomSkip: false
+#     sonarQubeRunAnalysis: true
+#     sqMavenPluginVersionChoice: 'latest'
+#     codeCoverageToolOption: 'JaCoCo'
+#     testResultsFiles: '**/TEST-*.xml'
+#     goals: 'verify'
 - task: SonarCloudAnalyze@1
 # Uncomment the next task to wait until SonarCloud processing has
 # finished and to publish the result on the Pipeline build summary
