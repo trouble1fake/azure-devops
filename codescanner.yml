@@ -14,7 +14,7 @@ jobs:
     steps:
     - task: SonarCloudPrepare@1
       inputs:
-        SonarCloud: 'sonartoken'
+        SonarCloud: 'sonarscan'
         organization: 'sivakalahasthy'
         scannerMode: 'Other'
     - task: SonarCloudAnalyze@1
